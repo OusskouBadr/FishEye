@@ -1,0 +1,65 @@
+.home-page {
+  padding: 30px 50px;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.home-header h1 {
+  color: #901c1c;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.photographers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 80px;
+  row-gap: 70px;
+}
+
+.photographer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.photographer-card a {
+  text-decoration: none;
+}
+
+.photographer-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.photographer-card h2 {
+  margin: 15px 0 4px;
+  color: #d3573c;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.location {
+  margin: 0;
+  color: #901c1c;
+  font-size: 14px;
+}
+
+.tagline {
+  margin: 4px 0;
+  font-size: 12px;
+}
+
+.price {
+  margin: 0;
+  color: #757575;
+  font-size: 12px;
+}
