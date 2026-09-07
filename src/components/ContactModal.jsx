@@ -5,11 +5,12 @@ import { useEffect } from "react";
 export default function ContactModal({ photographerName, onClose }) {
   useEffect(() => {
     function handleKeyDown(event) {
+      // si l'utilisateur appuie sur Echap, on ferme la modale
       if (event.key === "Escape") {
         onClose();
       }
     }
-
+    // ajoute l'écoute clavier quand la modale est affichée
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -20,23 +21,33 @@ export default function ContactModal({ photographerName, onClose }) {
   function handleSubmit(event) {
     event.preventDefault();
 
+    // Récupère directement l'élément <form>.
+    const form = event.currentTarget;
     const formData = new FormData(event.target);
 
+    // Dans ce projet, les données sont affichés dans la console car on les affiches nulle part
     console.log("Prénom :", formData.get("firstName"));
     console.log("Nom :", formData.get("lastName"));
     console.log("Email :", formData.get("email"));
     console.log("Message :", formData.get("message"));
+
+    // vide tous les champs après la soumission sans fermer la modale
+    form.reset();
   }
 
   return (
+    // overlay = fond autour de la modale , cliquer dessus ferme la fenêtre
     <div className="modal-overlay" onClick={onClose}>
-     <div
-      className="contact-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="contact-title"
-      onClick={(event) => event.stopPropagation()}
-    >
+      <div
+        className="contact-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-title"
+        // empêche le clic dans la modale de remonter jusqu'à l'overlay
+        onClick={(event) => event.stopPropagation()}
+      >
+
+      {/* Bouton de fermeture */}
       <button
         type="button"
         className="close-modal"

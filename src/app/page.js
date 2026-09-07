@@ -14,6 +14,7 @@ export default async function Home() {
           alt="FishEye"
           width={200}
           height={50}
+          loading="eager"
         />
         <h1>Nos photographes</h1>
       </header>

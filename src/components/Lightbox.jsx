@@ -12,6 +12,7 @@ export default function Lightbox({
 }) {
   const media = medias[currentIndex];
 
+  // useEffect permet ici d'ajouter une écoute clavier lightbox présente
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.key === "Escape") {
@@ -27,6 +28,7 @@ export default function Lightbox({
       }
     }
 
+    // ajout d'écouteur clavier sur la fenêtre
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -38,9 +40,11 @@ export default function Lightbox({
     <div className="lightbox-overlay" onClick={onClose}>
       <div
         className="lightbox"
+        // indication assistance que cet élément se comporte comme une boîte de dialogue
         role="dialog"
         aria-modal="true"
         aria-label={`Aperçu de ${media.title}`}
+        // evite le clic à l'intérieur de la lightbox de remonter jusqu'à l'overlay et de fermer la fenêtre
         onClick={(event) => event.stopPropagation()}
       >
         <button
@@ -62,6 +66,7 @@ export default function Lightbox({
         </button>
 
         <div className="lightbox-content">
+          {/* Condition : si le média possède une image, l'afficher sinon on affiche une vidéo */}
           {media.image ? (
             <Image
               src={`/assets/${media.image}`}

@@ -269,3 +269,43 @@
   font-weight: 500;
 }
 
+.not-found {
+  max-width: 600px;
+  margin: 120px auto 0;
+  padding: 40px;
+  text-align: center;
+}
+
+.not-found h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #901c1c;
+}
+
+.not-found p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #525252;
+}
+
+.not-found a {
+  display: inline-block;
+  padding: 12px 24px;
+
+  background-color: #901c1c;
+  color: white;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  border-radius: 5px;
+}
+
+.not-found a:hover {
+  background-color: #d3573c;
+}
+
+.not-found a:focus-visible {
+  outline: 3px solid #d3573c;
+  outline-offset: 4px;
+}
